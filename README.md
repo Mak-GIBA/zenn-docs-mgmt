@@ -29,6 +29,9 @@ $ zenn preview
 2. 1で纏めた記事をLLMに入力して記事ver2を作成してもらう
 3. 記事ver2の文章を軽微修正し，画像も付加して最終的な記事とする
 
+## how to insert images
+
+
 ## text prompt to make article
 
 ```
