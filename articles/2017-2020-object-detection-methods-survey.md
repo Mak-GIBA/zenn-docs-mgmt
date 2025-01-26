@@ -12,8 +12,6 @@ published: true
 2017年から2020年の間に、物体検出技術は大きく進化しました。特に、特徴ピラミッド構造(FPN)、アンカーフリー手法、クロスステージパーシャル(CSP)構造などが登場し、それぞれのアプローチで精度と計算効率のバランスが改善されました。本記事では、この時期の主なモデルの進化を振り返りながら、それぞれの技術の特徴を解説します。
 ![](https://storage.googleapis.com/zenn-user-upload/b4ac1f3f9c70-20250126.png)
 
----
-
 ## 2017年 - RetinaNetとFPN
 ### 特徴ピラミッド構造 (FPN)
 - 物体検出モデルの精度向上のため、FPNが提案されました。
@@ -24,7 +22,7 @@ published: true
 - RetinaNetはFPNを採用し、小物体検出精度を向上。
 - YOLOv3と比較すると、全般的にRetinaNetの方が高い精度を達成。
 
----
+
 
 ## 2018年 - CornerNetとCenterNet
 ### Hourglassネットワーク
@@ -33,7 +31,7 @@ published: true
 - 異なるサイズの画像に柔軟に対応可能だが、計算量が多く、推論速度やリソースに影響を与える。
 - データ量が不足している場合や分布が一様でない場合には、オーバーフィットのリスクがある。
 
----
+
 
 ## 2019年 - FCOSとアンカーフリー手法
 ### FCOSと4種類のbackbone
@@ -44,7 +42,6 @@ published: true
   - 高解像度の画像特徴を保持できるため、詳細な情報を捉えやすい。
   - ただし、複数の解像度を処理するため計算量が増加。
 
----
 
 ## 2020年 - YOLOv4とCSPNet
 ### YOLOv4の改良点
@@ -64,7 +61,7 @@ published: true
 ### Bag of Specials
 - 推論コストを少しだけ上げつつ、物体検出精度を大幅に向上させる技術。
 
----
+
 
 ## おわりに
 2017年から2020年にかけて、物体検出技術はFPN、アンカーフリー手法、CSPNetなどの新技術によって大きく進化しました。これらの技術は、以降の物体検出モデルにも大きな影響を与えています。今後もさらなる精度向上と計算効率のバランスを追求した研究が続くことでしょう。
@@ -84,7 +81,7 @@ published: true
 - [YOLOv4の詳細](https://qiita.com/kindamu24005/items/9ad336354bbc2dfd14ce)
 - [CSPNetの解説](https://nakamura-shogo.gitbook.io/dev-wiki/cv/aiml_cv_classification/cspnet)
 
----
+
 
 
 
