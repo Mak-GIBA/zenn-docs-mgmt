@@ -7,5 +7,9 @@
         "statusBarItem.hoverBackground": "#359268",
         "statusBarItem.remoteBackground": "#42b883",
         "statusBarItem.remoteForeground": "#15202b"
-    }
+    },
+    
+     "pasteImage.insertPattern": "${imageSyntaxPrefix}/images/${currentFileNameWithoutExt}/${imageFileName}${imageSyntaxSuffix}",
+     "pasteImage.path": "${projectRoot}/images/${currentFileNameWithoutExt}"
+    
 }
