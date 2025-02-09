@@ -1,15 +1,17 @@
 {
-    "workbench.colorCustomizations": {
-        "sideBar.border": "#65c89b",
-        "statusBar.background": "#42b883",
-        "statusBar.border": "#42b883",
-        "statusBar.foreground": "#15202b",
-        "statusBarItem.hoverBackground": "#359268",
-        "statusBarItem.remoteBackground": "#42b883",
-        "statusBarItem.remoteForeground": "#15202b"
-    },
-    
+
      "pasteImage.insertPattern": "${imageSyntaxPrefix}/images/${currentFileNameWithoutExt}/${imageFileName}${imageSyntaxSuffix}",
-     "pasteImage.path": "${projectRoot}/images/${currentFileNameWithoutExt}"
-    
+     "pasteImage.path": "${projectRoot}/images/${currentFileNameWithoutExt}",
+     "workbench.colorCustomizations": {
+          "sideBar.border": "#65c89b",
+          "statusBar.background": "#42b883",
+          "statusBar.border": "#42b883",
+          "statusBar.foreground": "#15202b",
+          "statusBarItem.hoverBackground": "#359268",
+          "statusBarItem.remoteBackground": "#42b883",
+          "statusBarItem.remoteForeground": "#15202b"
+     }
+
 }
+
+
