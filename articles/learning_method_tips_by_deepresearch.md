@@ -1,13 +1,13 @@
 ---
-title: "【DeepResearch】学習を成功させるためのTipsを網羅的に調べてもらった"
+title: "[DeepResearch]学習を成功させるためのTipsを網羅的に纏めた"
 emoji: "🙌"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: 
   - "deep learning"
   - "深層学習"
   - "学習方法"
-  - "python"
-published: false
+  - "deep research"
+published: true
 ---
 了解しました。画像認識分野における深層学習の適切な学習方法について、中級者/上級者向けの高度な技術を詳しく調査します。
 

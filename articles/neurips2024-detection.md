@@ -2,7 +2,11 @@
 title: "[NeurIPS2024]気になった物体検出分野の研究まとめ"
 emoji: "🙆"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: []
+topics: 
+  - "deep learning"
+  - "深層学習"
+  - "NeurIPS"
+  - "論文"
 published: true
 ---
 
