@@ -150,4 +150,3 @@ $$
 # 補足: 論文中で紹介されたプログラム
 - RefactoringMirrorと論文中のプロンプトテンプレート: https://github.com/bitselab/LLM4Refactoring/tree/master
 - ReExtractor: https://github.com/lyoubo/ReExtractor
-- 
