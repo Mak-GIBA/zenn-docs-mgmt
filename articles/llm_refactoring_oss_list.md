@@ -1,5 +1,5 @@
 ---
-title: "リファクタリングを補助するためのLLMアプリ一覧 (OSS)"
+title: "リファクタリングを補助するためのLLMアプリ (OSS) 一覧 "
 emoji: "🐕"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["LLM", "OSS", "github", "アプリケーション"]
