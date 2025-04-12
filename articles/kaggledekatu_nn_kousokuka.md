@@ -2,7 +2,7 @@
 title: "NNの高速化/安定化/軽量化/精度向上手法など"
 emoji: "📚"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["kaggl", "NN", "深層学習", "機械学習"]
+topics: ["kaggle", "NN", "深層学習", "機械学習"]
 published: true
 ---
 # はじめに
