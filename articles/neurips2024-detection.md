@@ -58,7 +58,7 @@ NeurIPS2024の発表の中で気になった物体検出分野の研究をピッ
 - NMSを不要とするためのDual Assignment Strategyを提案。本手法は，one-to-many assignmentの利点(多くの監視信号が得られるためモデルがより安定して高性能に学習される)とone-to-one matchingの利点(各物体に1つの予測のみを割り当てるため推論時にNMSが不要となり，冗長な予測を抑えられる)を活かすものである。
 - 本手法の実装構造は「one-to-many head (従来のYOLOのまま)」「one-to-one head (新しく追加)」の2つのheadを持ち，学習時は両方のheadを同時に最適化 (joint training) する。これによりBackboneとNeck (PAN) はone-to-manyの豊富な信号を活かすことができ，学習の安定性・精度が向上。
 - 推論時はone-to-one headのみを使用。これにより冗長な出力が存在せずNMSが不要に。one-to-oneマッチングはHungarian Matchingが主に使われるが，計算コストが高いため，各物体についてスコアが最も高い予測を1つだけ選ぶTop-1選択戦略を採用。
-- 以上で説明した2つの出力headが同じmetricに基づくことで両者の学習を整合させるためにConsistent Matching Metricを提案。これは，両headが同じ予測とGTのペアを最重要と認識するようにすることで学習方向を整合させるもの。両headとも以下のスコアで予測とGTをマッチングさせる。詳細→https://zenn.dev/link/comments/a23a1f69d7d392
+- 以上で説明した2つの出力headが同じmetricに基づくことで両者の学習を整合させるためにConsistent Matching Metricを提案。これは，両headが同じ予測とGTのペアを最重要と認識するようにすることで学習方向を整合させるもの。両headとも以下のスコアで予測とGTをマッチングさせる。(詳細→https://zenn.dev/link/comments/a23a1f69d7d392)
 
 $$
 m(\alpha, \beta) = s \cdot p^\alpha \cdot \text{IoU}(\hat{b}, b)^\beta
