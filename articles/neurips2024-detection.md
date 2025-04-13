@@ -53,7 +53,7 @@ NeurIPS2024の発表の中で気になった物体検出分野の研究をピッ
 - また，YOLOの精度と速度に最も大きな影響を与えるモデル構造設計に関しても完全に最適化されておらず，課題が残る。具体的にはBackbone(特徴抽出)→Neck(マルチスケール特徴を統合する部分)→モデルスケーリング/再パラメータ化の構造で物体検出するが，これに無駄がある。
 - 本研究では，精度と速度をより向上させるために「NMSの排除」「モデル構造の抜本的見直し」という2つの観点から改善を図った。
 
-![alt text](image.png)
+![](/images/neurips2024-detection/image-02.png)
 
 - NMSを不要とするためのDual Assignment Strategyを提案。本手法は，one-to-many assignmentの利点(多くの監視信号が得られるためモデルがより安定して高性能に学習される)とone-to-one matchingの利点(各物体に1つの予測のみを割り当てるため推論時にNMSが不要となり，冗長な予測を抑えられる)を活かすものである。
 - 本手法の実装構造は「one-to-many head (従来のYOLOのまま)」「one-to-one head (新しく追加)」の2つのheadを持ち，学習時は両方のheadを同時に最適化 (joint training) する。これによりBackboneとNeck (PAN) はone-to-manyの豊富な信号を活かすことができ，学習の安定性・精度が向上。
