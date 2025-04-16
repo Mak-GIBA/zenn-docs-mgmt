@@ -1,5 +1,5 @@
 ---
-title: "[論文要約]NeurIPS2024で気になった物体検出分野の研究まとめ"
+title: "【論文要約】NeurIPS2024で気になった物体検出分野の研究まとめ"
 emoji: "🙆"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: 

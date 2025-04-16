@@ -1,5 +1,5 @@
 ---
-title: "[論文要約]LLMによるコード生成技術の最新動向"
+title: "【論文纏め】RAGを使ったLLMによるコード生成技術の工夫"
 emoji: "🐷"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: []
@@ -7,8 +7,9 @@ published: false
 ---
 
 # [Preference-Guided Refactored Tuning for Retrieval Augmented Code Generation](https://arxiv.org/abs/2409.15895)
-- Retrieval-augmented
-code generation (RACG) はコード生成能力を強化する可能性が大きく，ロングテール問題 (稀なケースに弱い) にある程度対応できる。
+
+## **Background**
+- Retrieval-augmented code generation (RACG) はコード生成能力を強化する可能性が大きく，ロングテール問題 (稀なケースに弱い) にある程度対応できる。
 - しかし，RACGは以下問題点がある。
   - retrieverが無関係な情報を取り込んでしまい，generatorに悪影響を与える。また，generatorに入力する際のコンテキスト長の制限に引っかかる可能性が高くなる。(ある指標に基づき不要なトークンを除外する手法が試されてきたが限界がある)
   - retrievalしたコード(正解に近いコード)が効果的なコード生成を促すとは限らない。generatorは，正解のコードよりも「処理のしやすさ」「情報の新しさ」を重視する可能性があるため，retrieveしたコードを活かしきれない。
@@ -19,13 +20,13 @@ code generation (RACG) はコード生成能力を強化する可能性が大き
 | **第1段階** | 教師あり学習（SFT） + 外部知識の注入 | リファクタラを生成的圧縮ができるよう訓練する |
 | **第2段階** | 強化学習（RL）でrefactorerをチューニング | generatorの好みに近い出力を得るための調整（preference gap解消） |
 
-**Related Work**:
-- 元のLLMをベースにコードだけにだけに絞った追加学習を施すことでコード生成・理解能力を大幅に強化している。以下はコード特化のモデル。
+## **Related Work**
+- コード生成用の事前学習モデル: 元のLLMをベースにコードだけにだけに絞った追加学習を施すことでコード生成・理解能力を大幅に強化している。以下はコード特化のモデル。
   - CodeLLaMA: Meta社の LLaMA をベースにコード特化で学習したモデル
   - CodeGeex: 多言語コード生成が得意な中国発のモデル
   - AST-T5: T5というLLMにコードの構文的な複雑性（AST情報）を取り込んでいる
   - CodeGEN: 対話ベースのモデル
-- これまでRAGのpipelineを主に3つの観点で最適化している。Whatで情報源と粒度を最適化し，余計なコンテキストを削る。Whenで検索タイミングを動的に変更し，必要最小限の呼び出しで高精度化。Howでプロンプト長や計算コストを抑えつつモデルが利用しやすい形に加工。
+- RAG: これまでRAGのpipelineを主に3つの観点で最適化している。Whatで情報源と粒度を最適化し，余計なコンテキストを削る。Whenで検索タイミングを動的に変更し，必要最小限の呼び出しで高精度化。Howでプロンプト長や計算コストを抑えつつモデルが利用しやすい形に加工。
 
 | 視点 | キーとなる問い | 代表的な研究・手法 | 概要 |
 |------|---------------|--------------------|------|
@@ -33,7 +34,15 @@ code generation (RACG) はコード生成能力を強化する可能性が大き
 | **When**<br>（いつ取得するか） | *生成プロセスのどのタイミングで検索を挟むか？* | - **一括取得**（従来型）: 生成前にまとめて検索。<br>- **Flare**[13]: 途中で「必要になったら追加検索」する **適応的リトリーバル**。<br>- **Self‑RAG**[2]: 生成後に自己反省し、必要なら再検索して回答を改善。 | 「生成前に 1 回だけ検索」では不足する場合があるため、**逐次・反復的に検索**して精度と効率を両立。 |
 | **How**<br>（どう使うか） | *取得した情報を LLM にどう食べさせるか？* | - **RECOMP**[54], **PRCA**[57]: 重要部分だけを **圧縮・抽出** してプロンプトを短く。<br>- **RETRO**[4, 50]: 取得文を **ベクトル化してモデル内部に直接注入** し、推論時に参照。 | 入力トークン数の制限やノイズ混入を避けるため、**情報の圧縮・選別・内部統合** 技術が鍵になる。 |
 
-**Method**:
+- RACG: 
+
+## **Method**
 ![alt text](image-2.png)
 
-本手法の詳細: https://zenn.dev/link/comments/810c528cf5db16
+- 上図の流れの詳細: https://zenn.dev/link/comments/810c528cf5db16
+
+
+## **Datasets**
+- 以下2つのデータセットを使って訓練/検証/テストセット全てを統合し，retrievalに使うための参照用コードベースを構築。
+  - [CodeSearchNet](https://github.com/github/CodeSearchNet): GitHub上のOSSから収集されたコードと対応する説明文 (例: 関数の説明やドキュメント) 200万件のペアを含む大規模なデータセットである。このデータセットは6つの言語 (Python, Java, JavaScript, Ruby, Go PHPなど) に対応している。本研究ではPythonとJavaを使用している。
+  - [ConCode](https://github.com/microsoft/CodeXGLUE/tree/ac74a62802a0dd159b3258c78a2df8ad36cdf2b9/Text-Code/text-to-code/dataset/concode): Java言語に特化した専門性の高いデータセット。

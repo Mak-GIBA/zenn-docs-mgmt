@@ -1,5 +1,5 @@
 ---
-title: "[論文纏め]LLMによる自動リファクタリングの可能性"
+title: "【論文纏め】LLMによる自動リファクタリングの可能性"
 emoji: "👌"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["LLM", "paper", "リファクタリング"]
