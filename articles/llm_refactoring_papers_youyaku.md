@@ -1,5 +1,5 @@
 ---
-title: "【論文纏め】RAGを使ったLLMによるコード生成技術の工夫"
+title: "【論文解説】RAGを使ったLLMによるコード生成技術の工夫"
 emoji: "🐷"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: []
